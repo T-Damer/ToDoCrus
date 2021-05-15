@@ -1,77 +1,129 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
-import Icon from "react-native-vector-icons/FontAwesome";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-export default function App() {
+import "./app.scss";
+
+import { AuthContext } from "./context";
+import {
+  SignIn,
+  CreateAccount,
+  Search,
+  Home,
+  Details,
+  Search2,
+  Profile,
+  Splash,
+} from "./screens";
+
+const AuthStack = createStackNavigator();
+const Tabs = createBottomTabNavigator();
+const AuthStackScreen = () => (
+  <Tabs.Navigator>
+    <Tabs.Screen name="🔥" component={Home} />
+    <Tabs.Screen name="🎯" component={CreateAccount} />
+    <Tabs.Screen name="👤" component={Profile} />
+  </Tabs.Navigator>
+);
+
+const HomeStack = createStackNavigator();
+const SearchStack = createStackNavigator();
+
+// Renders home screen
+const HomeStackScreen = () => (
+  <HomeStack.Navigator>
+    <HomeStack.Screen name="Home" component={Home} />
+    <HomeStack.Screen
+      name="Details"
+      component={Details}
+      options={({ route }) => ({
+        title: route.params.name,
+      })}
+    />
+  </HomeStack.Navigator>
+);
+
+const SearchStackScreen = () => (
+  <SearchStack.Navigator>
+    <SearchStack.Screen name="Search" component={Search} />
+    <SearchStack.Screen name="Search2" component={Search2} />
+  </SearchStack.Navigator>
+);
+
+const ProfileStack = createStackNavigator();
+const ProfileStackScreen = () => (
+  <ProfileStack.Navigator>
+    <ProfileStack.Screen name="Profile" component={Profile} />
+  </ProfileStack.Navigator>
+);
+
+const TabsScreen = () => (
+  <Tabs.Navigator>
+    <Tabs.Screen name="Home" component={HomeStackScreen} />
+    <Tabs.Screen name="Search" component={SearchStackScreen} />
+  </Tabs.Navigator>
+);
+
+const RootStack = createStackNavigator();
+const RootStackScreen = ({ userToken }) => (
+  <RootStack.Navigator headerMode="none">
+    {userToken ? (
+      <RootStack.Screen
+        name="App"
+        component={DrawerScreen}
+        options={{
+          animationEnabled: false,
+        }}
+      />
+    ) : (
+      <RootStack.Screen
+        name="Auth"
+        component={AuthStackScreen}
+        options={{
+          animationEnabled: false,
+        }}
+      />
+    )}
+  </RootStack.Navigator>
+);
+
+export default () => {
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [userToken, setUserToken] = React.useState(null);
+
+  const authContext = React.useMemo(() => {
+    return {
+      signIn: () => {
+        setIsLoading(false);
+        setUserToken("asdf");
+      },
+      signUp: () => {
+        setIsLoading(false);
+        setUserToken("asdf");
+      },
+      signOut: () => {
+        setIsLoading(false);
+        setUserToken(null);
+      },
+    };
+  }, []);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, []);
+
+  if (isLoading) {
+    return <Splash />;
+  }
+
   return (
-    <View style={styles.container}>
-      <View style={{ flex: 2, backgroundColor: "grey", width: "100%" }}>
-        <Text style={styles.textH1}>Current tasks:</Text>
-        <hr
-          style={{
-            color: "#ffcc33",
-            backgroundColor: "#ffcc33",
-            height: 0.5,
-            width: "80%",
-            borderColor: "#ffcc33",
-            marginTop: 75,
-          }}
-        />
-      </View>
-      <View style={{ flex: 7, width: "100%", justifyContent: "center" }}>
-        <Text style={styles.textH1}>⚡️</Text>
-        <Text style={styles.textH1}>Start working!</Text>
-        <Text style={styles.textH}>I know you can!</Text>
-        <LinearGradient
-          // Button Linear Gradient
-          colors={["#F7971E", "#FFD200"]}
-          style={styles.actionButton}
-        >
-          <Text
-            style={{
-              color: "white",
-            }}
-          >
-            +
-          </Text>
-        </LinearGradient>
-
-        <Icon.Button
-          backgroundColor="#3b5998"
-          onPress={alert("button pressed!")}
-        >
-          +
-        </Icon.Button>
-      </View>
-      <View style={{ flex: 1, backgroundColor: "grey", width: "100%" }}>
-        <Text style={styles.textH}> Here icons </Text>
-      </View>
-    </View>
+    <AuthContext.Provider value={authContext}>
+      <NavigationContainer>
+        <RootStackScreen userToken={userToken} />
+      </NavigationContainer>
+    </AuthContext.Provider>
   );
-}
-
-const styles = StyleSheet.create({
-  actionButton: {
-    width: 50,
-    height: 75,
-    justifyContent: "center",
-    borderRadius: "35%",
-  },
-  container: {
-    flex: 1,
-    backgroundColor: "#000",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  textH1: {
-    color: "#ffcc33",
-    fontFamily: "Lato",
-    fontSize: 38,
-  },
-  textH: {
-    color: "#ffcc33",
-    fontFamily: "Roboto",
-  },
-});
+};
