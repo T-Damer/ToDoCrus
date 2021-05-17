@@ -57,7 +57,7 @@ const TabsScreen = () => {
               style={{
                 alignItems: "center",
                 justifyContent: "center",
-                top: 10,
+                bottom: 3,
               }}
             >
               <Image
@@ -81,16 +81,28 @@ const TabsScreen = () => {
         component={Home}
         options={{
           tabBarIcon: ({ focused }) => (
-            <Image
-              source={require("../assets/icons/fire.png")}
-              resizeMode="contain"
+            <View
               style={{
-                width: 40,
-                height: 40,
-                tintColor: "#ffcc33",
+                alignItems: "center",
+                justifyContent: "center",
+                bottom: 4,
               }}
-            />
+            >
+              <Image
+                source={require("../assets/icons/fire.png")}
+                resizeMode="contain"
+                style={{
+                  width: 40,
+                  height: 40,
+                  tintColor: "#ffcc33",
+                }}
+              />
+              <Text style={{ color: focused ? "#ffcc33" : "#424242" }}>
+                DOING
+              </Text>
+            </View>
           ),
+
           // tabBarButton: (props) => <fireButton {...props} />,
           // This line of code makes CSSStyle ERROR
         }}
@@ -104,7 +116,7 @@ const TabsScreen = () => {
               style={{
                 alignItems: "center",
                 justifyContent: "center",
-                top: 10,
+                bottom: 3,
               }}
             >
               <Image
@@ -117,7 +129,7 @@ const TabsScreen = () => {
                 }}
               />
               <Text style={{ color: focused ? "#ffcc33" : "#424242" }}>
-                Profile
+                Profiling
               </Text>
             </View>
           ),

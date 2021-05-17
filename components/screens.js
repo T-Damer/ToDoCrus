@@ -9,33 +9,25 @@ import FloatingButton from "./FloatingButton";
 
 export const Home = ({ navigator }) => {
   return (
-    <View>
+    <View style={styles.screen}>
       <View>
-        <Text style={styles.textH1}>Current tasks:</Text>
+        <Text style={[styles.textH1, styles.mainMessage]}>Current tasks:</Text>
         <View
           style={{
+            position: "absolute",
             backgroundColor: "#ffcc33",
-            height: 1,
-            width: "100%",
-            alignItems: "center",
+            height: 13,
+            width: "76%",
+            top: "201px",
+            left: "58px",
+            borderRadius: "42px",
           }}
         />
       </View>
 
-      <View>
+      <View style={styles.taskView}>
         <Tasks />
       </View>
-
-      <View
-        style={{
-          backgroundColor: "#ffcc33",
-          height: 1,
-          width: "80%",
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: 100,
-        }}
-      />
     </View>
   );
 };
@@ -59,12 +51,23 @@ export const Profile = ({ navigator }) => (
 );
 
 const styles = StyleSheet.create({
+  taskView: {
+    position: "absolute",
+    width: "1820px",
+    height: "580px",
+    left: "45px",
+    top: "230px",
+  },
+
+  mainMessage: {
+    position: "absolute",
+    left: "95px",
+    top: "83px",
+    lineHeight: "112px",
+  },
   screen: {
     flex: 1,
     backgroundColor: "black",
-    width: "80%",
-    alignItems: "center",
-    justifyContent: "center",
   },
   button: {
     paddingHorizontal: 20,
@@ -73,18 +76,18 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   container: {
-    flex: 1,
     backgroundColor: "#000",
-    alignItems: "center",
-    justifyContent: "center",
+    borderColor: "#ffcc33",
+    borderRadius: "42px",
+    borderWidth: "2px",
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
   },
   textH1: {
     color: "#ffcc33",
     fontFamily: "Roboto",
-    fontSize: 38,
+    fontSize: "96px",
     fontWeight: "bold",
-    margin: 10,
-    paddingTop: 80,
   },
   textH: {
     color: "#ffcc33",

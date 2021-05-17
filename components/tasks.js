@@ -38,9 +38,7 @@ export default function Tasks() {
         }}
         keyboardShouldPersistTaps="handled"
       >
-        {/* Today's Tasks */}
         <View style={styles.tasksWrapper}>
-          <Text style={styles.sectionTitle}>Today's tasks</Text>
           <View style={styles.items}>
             {/* This is where the tasks will go! */}
             {taskItems.map((item, index) => {
@@ -80,13 +78,18 @@ export default function Tasks() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#000",
+    color: "#ffcc33",
+  },
   textH: {
     color: "#ffcc33",
     fontFamily: "Roboto",
     padding: 20,
   },
   items: {
-    flex: 4,
+    color: "#ffcc33",
     width: "80%",
     justifyContent: "flex-start",
     alignItems: "flex-start",
@@ -99,26 +102,36 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
   },
-  taskInput: {
+  input: {
     color: "#ffcc33",
+    fontFamily: "Roboto",
+    fontSize: "24px",
     paddingVertical: 15,
     paddingHorizontal: 15,
-    width: 250,
     backgroundColor: "#000",
+    borderRadius: "42px",
     borderColor: "#ffcc33",
-    borderWidth: 1,
-    borderRadius: 60,
+    borderWidth: 2,
+    width: "80%",
+  },
+  tasksWrapper: {
+    paddingTop: 80,
+    paddingHorizontal: 20,
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: "bold",
   },
   addWrapper: {
     width: 60,
     height: 60,
-    backgroundColor: "ffcc33",
+    backgroundColor: "#ffcc33",
     borderRadius: 60,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#000",
     borderColor: "#ffcc33",
-    borderWidth: 1,
+    borderWidth: 2,
   },
   addText: {
     color: "#ffcc33",
