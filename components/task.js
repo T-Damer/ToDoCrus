@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-const Task = (props) => {
+export default function Task(props) {
   return (
     <View style={styles.item}>
       <View style={styles.checkbox}>
@@ -11,9 +11,7 @@ const Task = (props) => {
       <View style={styles.circle}> </View>
     </View>
   );
-};
-
-export default Task;
+}
 
 const styles = StyleSheet.create({
   textH: {

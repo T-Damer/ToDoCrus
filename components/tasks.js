@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
+
 import Task from "./task";
 
 export default function Tasks() {
