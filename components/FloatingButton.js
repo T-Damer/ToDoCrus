@@ -98,8 +98,6 @@ export default class FloatingButton extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: "1%",
-    marginLeft: "1%",
     position: "relative",
   },
   button: {
