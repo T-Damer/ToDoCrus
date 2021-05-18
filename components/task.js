@@ -17,17 +17,19 @@ const styles = StyleSheet.create({
   item: {
     backgroundColor: "#000",
     margin: 15,
-    padding: 15,
+    paddingHorizontal: 40,
+    paddingVertical: 15,
     borderRadius: 10,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginBottom: 20,
+    marginBottom: 28,
+    borderWidth: 2,
+    borderColor: "#ffcc33",
   },
   itemLeft: {
     flexDirection: "row",
     alignItems: "center",
-    flexWrap: "wrap",
   },
   square: {
     width: 24,
@@ -36,17 +38,20 @@ const styles = StyleSheet.create({
     opacity: 0.4,
     borderRadius: 5,
     marginRight: 15,
+    marginLeft: -15,
   },
   itemText: {
-    maxWidth: "80%",
+    fontSize: 24,
+    maxWidth: 1400,
+    color: "#ffcc33",
   },
   circular: {
     width: 12,
     height: 12,
     borderColor: "#ffcc33",
+    marginLeft: 20,
     borderWidth: 2,
     borderRadius: 5,
-    margin: 5,
   },
 });
 

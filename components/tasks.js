@@ -66,8 +66,9 @@ export default function Tasks() {
           placeholder={"Write a task"}
           value={task}
           onChangeText={(text) => setTask(text)}
+          clearButtonMode="always"
         />
-        <TouchableOpacity onPress={() => handleAddTask()}>
+        <TouchableOpacity onPress={() => handleAddTask(this)}>
           <View style={styles.addWrapper}>
             <Text style={styles.addText}>+</Text>
           </View>
@@ -81,7 +82,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#000",
-    color: "#ffcc33",
   },
   textH: {
     color: "#ffcc33",
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   },
   writeTaskWrapper: {
     position: "absolute",
-    bottom: 60,
+    top: 5,
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-around",
@@ -125,7 +125,6 @@ const styles = StyleSheet.create({
   addWrapper: {
     width: 60,
     height: 60,
-    backgroundColor: "#ffcc33",
     borderRadius: 60,
     justifyContent: "center",
     alignItems: "center",

@@ -11,15 +11,15 @@ export const Home = ({ navigator }) => {
   return (
     <View style={styles.screen}>
       <View>
-        <Text style={[styles.textH1, styles.mainMessage]}>Current tasks:</Text>
+        <Text style={[styles.textH1, styles.mainMessage]}>Tasks:</Text>
         <View
           style={{
             position: "absolute",
             backgroundColor: "#ffcc33",
             height: 13,
             width: "76%",
-            top: "201px",
-            left: "58px",
+            top: "10em",
+            left: "3.1em",
             borderRadius: "42px",
           }}
         />
@@ -36,7 +36,18 @@ export const Planning = ({ navigator }) => {
   return (
     <View style={styles.screen}>
       <View>
-        <Text style={styles.textH}>Details Screen</Text>
+        <Text style={[styles.textH1, styles.mainMessage]}>Planning:</Text>
+        <View
+          style={{
+            position: "absolute",
+            backgroundColor: "#ffcc33",
+            height: 13,
+            width: "76%",
+            top: "10em",
+            left: "3.1em",
+            borderRadius: "42px",
+          }}
+        />
       </View>
     </View>
   );
@@ -45,7 +56,18 @@ export const Planning = ({ navigator }) => {
 export const Profile = ({ navigator }) => (
   <View style={styles.screen}>
     <View>
-      <Text style={styles.textH}>Profile Screen</Text>
+      <Text style={[styles.textH1, styles.mainMessage]}>Profile:</Text>
+      <View
+        style={{
+          position: "absolute",
+          backgroundColor: "#ffcc33",
+          height: 13,
+          width: "76%",
+          top: "10em",
+          left: "3.1em",
+          borderRadius: "42px",
+        }}
+      />
     </View>
   </View>
 );
@@ -53,17 +75,16 @@ export const Profile = ({ navigator }) => (
 const styles = StyleSheet.create({
   taskView: {
     position: "absolute",
-    width: "1820px",
-    height: "580px",
+    width: "95%",
+    height: "54%",
     left: "45px",
     top: "230px",
   },
-
   mainMessage: {
     position: "absolute",
-    left: "95px",
+    left: "1em",
     top: "83px",
-    lineHeight: "112px",
+    lineHeight: "6%",
   },
   screen: {
     flex: 1,
@@ -121,7 +142,7 @@ const styles = StyleSheet.create({
   addWrapper: {
     width: 60,
     height: 60,
-    backgroundColor: "ffcc33",
+    backgroundColor: "#ffcc33",
     borderRadius: 60,
     justifyContent: "center",
     alignItems: "center",
