@@ -19,8 +19,12 @@ export default function Tasks() {
 
   const handleAddTask = () => {
     Keyboard.dismiss();
+    if (!task) {
+      alert("Please enter a task");
+      return;
+    }
     setTaskItems([...taskItems, task]);
-    setTask(null);
+    setTask(""); //Sometimes null works better
   };
 
   const completeTask = (index) => {
@@ -40,7 +44,7 @@ export default function Tasks() {
       >
         <View style={styles.tasksWrapper}>
           <View style={styles.items}>
-            {/* This is where the tasks will go! */}
+            {/* This is where the tasks will go */}
             {taskItems.map((item, index) => {
               return (
                 <TouchableOpacity

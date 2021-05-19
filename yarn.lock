@@ -5983,6 +5983,11 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   "version" "17.0.2"
 
+"react-keybind@^0.9.4":
+  "integrity" "sha512-JVlXJ4ONQFQtEDZqXpc5NZ3oLEJtj7lKCPMLsbAO6FfkXJ21VHKyDtiLUIMio3d3oSC8QfxDOQtUEeVrMW6HfQ=="
+  "resolved" "https://registry.npmjs.org/react-keybind/-/react-keybind-0.9.4.tgz"
+  "version" "0.9.4"
+
 "react-native-gesture-handler@*", "react-native-gesture-handler@>= 1.0.0", "react-native-gesture-handler@~1.10.2":
   "integrity" "sha512-cBGMi1IEsIVMgoox4RvMx7V2r6bNKw0uR1Mu1o7NbuHS6BRSVLq0dP34l2ecnPlC+jpWd3le6Yg1nrdCjby2Mw=="
   "resolved" "https://registry.npmjs.org/react-native-gesture-handler/-/react-native-gesture-handler-1.10.3.tgz"
