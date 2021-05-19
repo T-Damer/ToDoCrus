@@ -143,7 +143,7 @@ export default TabsScreen;
 
 const styles = StyleSheet.create({
   shadow: {
-    shadowColor: "ff9900",
+    shadowColor: "#ff9900",
     shadowOffset: {
       width: 0,
       height: 10,

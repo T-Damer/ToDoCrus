@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import Tasks from "./tasks";
+//Screens
+import { PlanningTab } from "./planningTab";
 // Additionals
 import { StatusBar } from "expo-status-bar";
 import { LinearGradient } from "expo-linear-gradient";
@@ -12,17 +14,7 @@ export const Home = ({ navigator }) => {
     <View style={styles.screen}>
       <View>
         <Text style={[styles.textH1, styles.mainMessage]}>Tasks:</Text>
-        <View
-          style={{
-            position: "absolute",
-            backgroundColor: "#ffcc33",
-            height: 13,
-            width: "76%",
-            top: "10em",
-            left: "3.1em",
-            borderRadius: "42px",
-          }}
-        />
+        <View style={styles.line} />
       </View>
 
       <View style={styles.taskView}>
@@ -34,21 +26,12 @@ export const Home = ({ navigator }) => {
 
 export const Planning = ({ navigator }) => {
   return (
-    <View style={styles.screen}>
+    <View style={styles.planningScreen}>
       <View>
         <Text style={[styles.textH1, styles.mainMessage]}>Planning:</Text>
-        <View
-          style={{
-            position: "absolute",
-            backgroundColor: "#ffcc33",
-            height: 13,
-            width: "76%",
-            top: "10em",
-            left: "3.1em",
-            borderRadius: "42px",
-          }}
-        />
+        <View style={styles.line} />
       </View>
+      <PlanningTab />
     </View>
   );
 };
@@ -57,17 +40,7 @@ export const Profile = ({ navigator }) => (
   <View style={styles.screen}>
     <View>
       <Text style={[styles.textH1, styles.mainMessage]}>Profile:</Text>
-      <View
-        style={{
-          position: "absolute",
-          backgroundColor: "#ffcc33",
-          height: 13,
-          width: "76%",
-          top: "10em",
-          left: "3.1em",
-          borderRadius: "42px",
-        }}
-      />
+      <View style={styles.line} />
     </View>
   </View>
 );
@@ -82,13 +55,29 @@ const styles = StyleSheet.create({
   },
   mainMessage: {
     position: "absolute",
-    left: "1em",
-    top: "83px",
-    lineHeight: "6%",
+    left: 100,
+    top: 83,
+    lineHeight: 6,
+  },
+  line: {
+    position: "absolute",
+    backgroundColor: "#ffcc33",
+    height: 13,
+    width: "76%",
+    top: 150,
+    left: 50,
+    borderRadius: 42,
   },
   screen: {
     flex: 1,
     backgroundColor: "black",
+  },
+  planningScreen: {
+    flex: 1,
+    backgroundColor: "black",
+    // flexDirection: "row", - when you will add three columns
+    // justifyContent: "space-between",
+    alignItems: "flex-start",
   },
   button: {
     paddingHorizontal: 20,
@@ -99,15 +88,15 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#000",
     borderColor: "#ffcc33",
-    borderRadius: "42px",
-    borderWidth: "2px",
+    borderRadius: 42,
+    borderWidth: 2,
     alignItems: "flex-start",
     justifyContent: "flex-start",
   },
   textH1: {
     color: "#ffcc33",
     fontFamily: "Roboto",
-    fontSize: "96px",
+    fontSize: 96,
     fontWeight: "bold",
   },
   textH: {

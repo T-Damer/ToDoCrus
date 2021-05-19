@@ -109,11 +109,11 @@ const styles = StyleSheet.create({
   input: {
     color: "#ffcc33",
     fontFamily: "Roboto",
-    fontSize: "24px",
+    fontSize: 24,
     paddingVertical: 15,
     paddingHorizontal: 15,
     backgroundColor: "#000",
-    borderRadius: "42px",
+    borderRadius: 42,
     borderColor: "#ffcc33",
     borderWidth: 2,
     width: "80%",
