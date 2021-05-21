@@ -94,7 +94,7 @@ const TabsScreen = () => {
                 style={{
                   width: 40,
                   height: 40,
-                  tintColor: "#ffcc33",
+                  tintColor: focused ? "#ffcc33" : "#424242",
                 }}
               />
               <Text style={{ color: focused ? "#ffcc33" : "#424242" }}>

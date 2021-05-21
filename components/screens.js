@@ -28,10 +28,26 @@ export const Planning = ({ navigator }) => {
   return (
     <View style={styles.planningScreen}>
       <View>
-        <Text style={[styles.textH1, styles.mainMessage]}>Planning:</Text>
         <View style={styles.line} />
+        <Text style={[styles.textH1, styles.mainMessage]}>Planning:</Text>
       </View>
-      <PlanningTab />
+      <View style={{ flexDirection: "row" }}>
+        <PlanningTab />
+        <PlanningTab />
+        <PlanningTab />
+      </View>
+      <View
+        style={{
+          name: "arrowsPlanning",
+          flex: 0.3,
+          width: "100%",
+          backgroundColor: "#000",
+          flexDirection: "row",
+        }}
+      >
+        <Text style={[styles.textH]}>PAST</Text>
+        <Text style={styles.textH}>FUTURE</Text>
+      </View>
     </View>
   );
 };
@@ -50,8 +66,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: "95%",
     height: "54%",
-    left: "45px",
-    top: "230px",
+    left: 45,
+    top: 230,
   },
   mainMessage: {
     position: "absolute",
@@ -77,7 +93,7 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     // flexDirection: "row", - when you will add three columns
     // justifyContent: "space-between",
-    alignItems: "flex-start",
+    // alignItems: "flex-start",
   },
   button: {
     paddingHorizontal: 20,
