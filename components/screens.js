@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import Tasks from "./tasks";
 //Screens
-import { PlanningTab } from "./planningTab";
+import { PlanningScreen } from "./planningScreen";
 // Additionals
-import { StatusBar } from "expo-status-bar";
-import { LinearGradient } from "expo-linear-gradient";
-import Icon from "react-native-vector-icons/FontAwesome";
-import FloatingButton from "./FloatingButton";
+import { PlanningTab } from "./planningTab";
 
 export const Home = ({ navigator }) => {
   return (
@@ -26,29 +23,55 @@ export const Home = ({ navigator }) => {
 
 export const Planning = ({ navigator }) => {
   return (
-    <View style={styles.planningScreen}>
-      <View>
-        <View style={styles.line} />
-        <Text style={[styles.textH1, styles.mainMessage]}>Planning:</Text>
-      </View>
-      <View style={{ flexDirection: "row" }}>
-        <PlanningTab />
-        <PlanningTab />
-        <PlanningTab />
-      </View>
-      <View
-        style={{
-          name: "arrowsPlanning",
-          flex: 0.3,
-          width: "100%",
-          backgroundColor: "#000",
-          flexDirection: "row",
-        }}
-      >
-        <Text style={[styles.textH]}>PAST</Text>
-        <Text style={styles.textH}>FUTURE</Text>
-      </View>
-    </View>
+    //     <View style={styles.planningScreen}>
+    //       <View>
+    //         <View style={styles.line} />
+    //         <Text style={[styles.textH1, styles.mainMessage]}>Planning:</Text>
+    //       </View>
+    //       <View style={{ flexDirection: "row" }}>
+    //         <PlanningTab />
+    //         <PlanningTab />
+    //         <PlanningTab />
+    //       </View>
+    //       <View
+    //         style={{
+    //           name: "arrowsPlanning",
+    //           flex: 0.3,
+    //           width: "100%",
+    //           backgroundColor: "#000",
+    //           flexDirection: "row",
+    //         }}
+    //       >
+    //         <View style={{ flexGrow: "1", alignItems: "flex-start" }}>
+    //           <Text
+    //             style={{
+    //               color: "#ffcc33",
+    //               fontSize: 20,
+    //               fontFamily: "Roboto",
+    //               padding: 20,
+    //             }}
+    //           >
+    //             {`<<< `}PAST
+    //           </Text>
+    //         </View>
+    //         <View style={{ flexGrow: "1", alignItems: "flex-end" }}>
+    //           <Text
+    //             style={{
+    //               color: "#ffcc33",
+    //               fontSize: 20,
+    //               fontFamily: "Roboto",
+    //               alignItems: "flex-end",
+    //               padding: 20,
+    //             }}
+    //           >
+    //             FUTURE{` >>>`}
+    //           </Text>
+    //         </View>
+    //       </View>
+    //     </View>
+    //   );
+    // };
+    <PlanningScreen />
   );
 };
 
@@ -91,9 +114,6 @@ const styles = StyleSheet.create({
   planningScreen: {
     flex: 1,
     backgroundColor: "black",
-    // flexDirection: "row", - when you will add three columns
-    // justifyContent: "space-between",
-    // alignItems: "flex-start",
   },
   button: {
     paddingHorizontal: 20,

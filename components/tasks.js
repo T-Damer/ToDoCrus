@@ -29,7 +29,7 @@ export default function Tasks() {
 
   const completeTask = (index) => {
     let itemsCopy = [...taskItems];
-    itemsCopy.splice(index, 1);
+    itemsCopy.splice(index, 1); // deletes the task
     setTaskItems(itemsCopy);
   };
 

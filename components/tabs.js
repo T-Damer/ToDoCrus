@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Planning, Home, Profile } from "./screens";
-import Ionicons from "react-native-vector-icons/Ionicons";
 
 const Tabs = createBottomTabNavigator();
 const fireButton = ({ children, onPress }) => (

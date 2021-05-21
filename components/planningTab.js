@@ -3,46 +3,6 @@ import { View, Text, ScrollView, StyleSheet } from "react-native";
 
 export const PlanningTab = () => {
   return (
-    // <View
-    //   style={{
-    //     flexDirection: "column",
-    //     justifyContent: "flex-start",
-    //     alignItems: "center",
-    //   }}
-    // >
-    //   <View>
-    //     <Text style={styles.dateFormat}>Fri: 21.05.21</Text>
-    //     <View
-    //       style={{
-    //         flex: 1,
-    //         name: "hr",
-    //         position: "absolute",
-    //         backgroundColor: "#878787",
-    //         height: 4,
-    //         width: "100%",
-    //         left: 68,
-    //         top: 250,
-    //       }}
-    //     />
-    //   </View>
-    //   <View style={styles.container}>
-    //     <ScrollView
-    //       contentContainerStyle={{
-    //         flexGrow: 1,
-    //       }}
-    //       keyboardShouldPersistTaps="handled"
-    //     >
-    //       <Text
-    //         style={{
-    //           color: "#ffcc33",
-    //           textSize: 48,
-    //         }}
-    //       >
-    //         HERE YOUR TASKS
-    //       </Text>
-    //     </ScrollView>
-    //   </View>
-    // </View>
     <View
       style={{
         marginTop: 200,
@@ -71,7 +31,7 @@ export const PlanningTab = () => {
             alignItems: "center",
           }}
         />
-        <Text style={styles.dateFormat}>Fri: 21.05.21</Text>
+        <Text style={styles.dateFormat}>DATE</Text>
         <View
           style={{
             name: "hrGrey",
@@ -89,14 +49,6 @@ export const PlanningTab = () => {
             height: 100,
             flexGrow: 1,
             backgroundColor: "#424242",
-          }}
-        />
-        <View
-          style={{
-            name: "arrowsPlanning",
-            flex: 0.2,
-            width: "100%",
-            backgroundColor: "orange",
           }}
         />
       </View>
