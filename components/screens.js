@@ -3,8 +3,9 @@ import { View, Text, StyleSheet, ScrollView } from "react-native";
 import Tasks from "./tasks";
 //Screens
 import { PlanningScreen } from "./planningScreen";
+import { ProfileScreen } from "./profileScreen";
+
 // Additionals
-import { PlanningTab } from "./planningTab";
 
 export const Home = ({ navigator }) => {
   return (
@@ -22,65 +23,12 @@ export const Home = ({ navigator }) => {
 };
 
 export const Planning = ({ navigator }) => {
-  return (
-    //     <View style={styles.planningScreen}>
-    //       <View>
-    //         <View style={styles.line} />
-    //         <Text style={[styles.textH1, styles.mainMessage]}>Planning:</Text>
-    //       </View>
-    //       <View style={{ flexDirection: "row" }}>
-    //         <PlanningTab />
-    //         <PlanningTab />
-    //         <PlanningTab />
-    //       </View>
-    //       <View
-    //         style={{
-    //           name: "arrowsPlanning",
-    //           flex: 0.3,
-    //           width: "100%",
-    //           backgroundColor: "#000",
-    //           flexDirection: "row",
-    //         }}
-    //       >
-    //         <View style={{ flexGrow: "1", alignItems: "flex-start" }}>
-    //           <Text
-    //             style={{
-    //               color: "#ffcc33",
-    //               fontSize: 20,
-    //               fontFamily: "Roboto",
-    //               padding: 20,
-    //             }}
-    //           >
-    //             {`<<< `}PAST
-    //           </Text>
-    //         </View>
-    //         <View style={{ flexGrow: "1", alignItems: "flex-end" }}>
-    //           <Text
-    //             style={{
-    //               color: "#ffcc33",
-    //               fontSize: 20,
-    //               fontFamily: "Roboto",
-    //               alignItems: "flex-end",
-    //               padding: 20,
-    //             }}
-    //           >
-    //             FUTURE{` >>>`}
-    //           </Text>
-    //         </View>
-    //       </View>
-    //     </View>
-    //   );
-    // };
-    <PlanningScreen />
-  );
+  return <PlanningScreen />;
 };
 
 export const Profile = ({ navigator }) => (
-  <View style={styles.screen}>
-    <View>
-      <Text style={[styles.textH1, styles.mainMessage]}>Profile:</Text>
-      <View style={styles.line} />
-    </View>
+  <View>
+    <ProfileScreen />
   </View>
 );
 

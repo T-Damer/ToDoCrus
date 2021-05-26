@@ -30,9 +30,6 @@ const styles = StyleSheet.create({
   planningScreen: {
     flex: 1,
     backgroundColor: "black",
-    // flexDirection: "row", - when you will add three columns
-    // justifyContent: "space-between",
-    // alignItems: "flex-start",
   },
   button: {
     paddingHorizontal: 20,
