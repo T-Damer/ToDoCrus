@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { View, Text, StyleSheet, ScrollView, PixelRatio } from "react-native";
 import Tasks from "./tasks";
 //Screens
 import { PlanningScreen } from "./planningScreen";
@@ -32,6 +32,14 @@ export const Profile = ({ navigator }) => (
   </View>
 );
 
+if (PixelRatio.get() > 1) {
+  var FONT_H1_LABEL = 64;
+  var MAINMSG_LEFT_STYLE = 50;
+} else {
+  var FONT_H1_LABEL = 96;
+  var MAINMSG_LEFT_STYLE = 100;
+}
+
 const styles = StyleSheet.create({
   taskView: {
     position: "absolute",
@@ -42,7 +50,7 @@ const styles = StyleSheet.create({
   },
   mainMessage: {
     position: "absolute",
-    left: 100,
+    left: MAINMSG_LEFT_STYLE,
     top: 83,
     lineHeight: 6,
   },
@@ -80,7 +88,7 @@ const styles = StyleSheet.create({
   textH1: {
     color: "#ffcc33",
     fontFamily: "Roboto",
-    fontSize: 96,
+    fontSize: FONT_H1_LABEL,
     fontWeight: "bold",
   },
   textH: {

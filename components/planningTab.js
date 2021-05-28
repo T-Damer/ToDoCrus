@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, ScrollView, StyleSheet } from "react-native";
-
+import Tasks from "./tasks";
 export const PlanningTab = () => {
   return (
     <View
@@ -18,7 +18,6 @@ export const PlanningTab = () => {
           flex: 1,
           width: 600,
           height: 400,
-          backgroundColor: "#424242",
         }}
       >
         <View
@@ -48,9 +47,12 @@ export const PlanningTab = () => {
             width: 600,
             height: 100,
             flexGrow: 1,
-            backgroundColor: "#424242",
           }}
-        />
+        >
+          <View style={{ marginLeft: 10, marginTop: 10 }}>
+            <Tasks />
+          </View>
+        </ScrollView>
       </View>
     </View>
   );

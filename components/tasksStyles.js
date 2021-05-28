@@ -1,16 +1,20 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, PixelRatio } from "react-native";
+
+if (PixelRatio.get() > 1) {
+  // Smthing else than WEB version
+  var FONT_H1_LABEL = 64;
+  var MAINMSG_LEFT_STYLE = 50;
+  var PLUS_MARGINRIGHT_STYLE = 50;
+} else {
+  var FONT_H1_LABEL = 96;
+  var MAINMSG_LEFT_STYLE = 100;
+  var PLUS_MARGINRIGHT_STYLE = 150;
+}
 
 const styles = StyleSheet.create({
-  taskView: {
-    position: "absolute",
-    width: "95%",
-    height: "54%",
-    left: 45,
-    top: 230,
-  },
   mainMessage: {
-    position: "absolute",
-    left: 100,
+    position: "relative",
+    left: MAINMSG_LEFT_STYLE,
     top: 83,
     lineHeight: 6,
   },
@@ -27,28 +31,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "black",
   },
-  planningScreen: {
-    flex: 1,
-    backgroundColor: "black",
-  },
-  button: {
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    marginVertical: 30,
-    borderRadius: 5,
-  },
-  container: {
-    backgroundColor: "#000",
-    borderColor: "#ffcc33",
-    borderRadius: 42,
-    borderWidth: 2,
-    alignItems: "flex-start",
-    justifyContent: "flex-start",
-  },
   textH1: {
     color: "#ffcc33",
     fontFamily: "Roboto",
-    fontSize: 96,
+    fontSize: FONT_H1_LABEL,
     fontWeight: "bold",
   },
   textH: {
@@ -56,43 +42,59 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto",
     padding: 20,
   },
+  container: {
+    flex: 1,
+    backgroundColor: "#000",
+  },
   items: {
-    flex: 4,
+    color: "#ffcc33",
     width: "80%",
     justifyContent: "flex-start",
     alignItems: "flex-start",
   },
   writeTaskWrapper: {
     position: "absolute",
-    bottom: 60,
+    top: 5,
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
   },
-  taskInput: {
+  input: {
     color: "#ffcc33",
+    fontFamily: "Roboto",
+    fontSize: 24,
     paddingVertical: 15,
     paddingHorizontal: 15,
-    width: 250,
     backgroundColor: "#000",
+    borderRadius: 42,
     borderColor: "#ffcc33",
-    borderWidth: 1,
-    borderRadius: 60,
+    borderWidth: 2,
+    width: "80%",
+  },
+  tasksWrapper: {
+    paddingTop: 80,
+    paddingHorizontal: 20,
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: "bold",
   },
   addWrapper: {
     width: 60,
     height: 60,
-    backgroundColor: "#ffcc33",
     borderRadius: 60,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#000",
     borderColor: "#ffcc33",
-    borderWidth: 1,
+    borderWidth: 2,
+    marginRight: PLUS_MARGINRIGHT_STYLE,
   },
   addText: {
     color: "#ffcc33",
     fontSize: 24,
   },
 });
+
+export { styles };

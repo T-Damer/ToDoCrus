@@ -13,6 +13,8 @@ import {
 
 import Task from "./task";
 
+import { styles } from "./tasksStyles";
+
 export default function Tasks() {
   const [task, setTask] = useState();
   const [taskItems, setTaskItems] = useState([]);
@@ -81,64 +83,3 @@ export default function Tasks() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#000",
-  },
-  textH: {
-    color: "#ffcc33",
-    fontFamily: "Roboto",
-    padding: 20,
-  },
-  items: {
-    color: "#ffcc33",
-    width: "80%",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-  },
-  writeTaskWrapper: {
-    position: "absolute",
-    top: 5,
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-  },
-  input: {
-    color: "#ffcc33",
-    fontFamily: "Roboto",
-    fontSize: 24,
-    paddingVertical: 15,
-    paddingHorizontal: 15,
-    backgroundColor: "#000",
-    borderRadius: 42,
-    borderColor: "#ffcc33",
-    borderWidth: 2,
-    width: "80%",
-  },
-  tasksWrapper: {
-    paddingTop: 80,
-    paddingHorizontal: 20,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: "bold",
-  },
-  addWrapper: {
-    width: 60,
-    height: 60,
-    borderRadius: 60,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#000",
-    borderColor: "#ffcc33",
-    borderWidth: 2,
-    marginRight: 150,
-  },
-  addText: {
-    color: "#ffcc33",
-    fontSize: 24,
-  },
-});

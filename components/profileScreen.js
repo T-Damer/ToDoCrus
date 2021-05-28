@@ -1,12 +1,12 @@
 import React from "react";
-import { View, Text, ScrollView, StyleSheet } from "react-native";
-import { RFPercentage } from "react-native-responsive-fontsize";
-import { ProfileScreenUI } from "./profileScreenUI";
+import { View, Text, ScrollView } from "react-native";
 import { ProfileItem, ProfileSubItem } from "./profileScreenItem";
+import { styles } from "./profileScreenStyles";
+// import { ProfileScreenUI } from "/.profileScreenUI";
 
 export const ProfileScreen = () => {
   return (
-    <View style={styles.screen}>
+    <View style={styles.screeen}>
       <View style={{ flex: 0.7 }}>
         <Text style={[styles.textH1, styles.mainMessage]}>Profile:</Text>
         <View style={styles.line} />
@@ -25,40 +25,3 @@ export const ProfileScreen = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  mainMessage: {
-    position: "absolute",
-    left: 100,
-    top: 83,
-    lineHeight: 6,
-  },
-  screen: {
-    backgroundColor: "black",
-  },
-  line: {
-    position: "absolute",
-    backgroundColor: "#ffcc33",
-    height: 13,
-    width: "76%",
-    top: 150,
-    left: 50,
-    borderRadius: 42,
-  },
-  screen: {
-    flex: 1,
-    backgroundColor: "black",
-    flexDirection: "column",
-  },
-  textH1: {
-    color: "#ffcc33",
-    fontFamily: "Roboto",
-    fontSize: RFPercentage(7),
-    fontWeight: "bold",
-  },
-  textH: {
-    color: "#ffcc33",
-    fontFamily: "Roboto",
-    padding: 20,
-  },
-});
