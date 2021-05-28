@@ -6,22 +6,28 @@ import { styles } from "./profileScreenStyles";
 
 export const ProfileScreen = () => {
   return (
-    <View style={styles.screeen}>
+    <View style={styles.screen}>
       <View style={{ flex: 0.7 }}>
         <Text style={[styles.textH1, styles.mainMessage]}>Profile:</Text>
         <View style={styles.line} />
       </View>
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 2 }}>
         <ScrollView
-          contentContainerStyle={{
+          style={{
             flexGrow: 1,
           }}
         >
           <ProfileItem text={"OPTIONS:"} />
+          <ProfileSubItem text={"Change name"} />
+          <ProfileSubItem text={"Change avatar"} />
+          <ProfileSubItem text={"Change email"} />
+          <ProfileItem text={"ADDITIONAL OPTIONS:"} />
           <ProfileSubItem text={"Change profile"} />
+          <ProfileItem text={"CUSTOMIZATION"} />
+          <ProfileSubItem text={"ENABLE DARK MODE?"} />
         </ScrollView>
       </View>
-      <View style={{ flex: 0.6 }} />
+      <View style={{ flex: 0.5 }} />
     </View>
   );
 };

@@ -26,11 +26,9 @@ export const Planning = ({ navigator }) => {
   return <PlanningScreen />;
 };
 
-export const Profile = ({ navigator }) => (
-  <View>
-    <ProfileScreen />
-  </View>
-);
+export const Profile = ({ navigator }) => {
+  return <ProfileScreen />;
+};
 
 if (PixelRatio.get() > 1) {
   var FONT_H1_LABEL = 64;

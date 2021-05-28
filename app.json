@@ -13,7 +13,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "buildNumber": "1.0.0"
@@ -29,6 +31,7 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "Simple todo app, that helps you to focus on your tasks, it will not solve the problem for you, but certainly will help"
+    "description": "Simple todo app, that helps you to focus on your tasks, it will not solve the problem for you, but certainly will help",
+    "primaryColor": "#ffcc33"
   }
 }

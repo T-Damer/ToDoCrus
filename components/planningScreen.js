@@ -1,8 +1,6 @@
 import React from "react";
 import { View, Text, ScrollView, StyleSheet, PixelRatio } from "react-native";
-
 import { PlanningTab } from "./planningTab";
-
 import { styles } from "./planningScreenStyles";
 
 export const PlanningScreen = () => {
