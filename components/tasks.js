@@ -68,7 +68,7 @@ export default function Tasks() {
         style={styles.writeTaskWrapper}
       >
         <TextInput
-          style={styles.input}
+          style={[styles.input]}
           placeholder={"Write a task"}
           value={task}
           onChangeText={(text) => setTask(text)}

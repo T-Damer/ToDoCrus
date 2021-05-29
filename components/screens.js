@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     width: "95%",
     height: "54%",
     left: 45,
-    top: 230,
+    top: 190,
   },
   mainMessage: {
     position: "absolute",

@@ -1,6 +1,11 @@
 import React from "react";
 import { View, Text, ScrollView, StyleSheet } from "react-native";
 import Tasks from "./tasks";
+
+var date = new Date().getDate();
+var month = new Date().getMonth();
+var year = new Date().getFullYear();
+
 export const PlanningTab = () => {
   return (
     <View
@@ -30,7 +35,9 @@ export const PlanningTab = () => {
             alignItems: "center",
           }}
         />
-        <Text style={styles.dateFormat}>DATE</Text>
+        <Text style={styles.dateFormat}>
+          {date}.{month}.{year}
+        </Text>
         <View
           style={{
             name: "hrGrey",
