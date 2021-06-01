@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, PixelRatio } from "react-native";
 
 const Task = (props) => {
   return (
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   },
   itemText: {
     fontSize: 24,
-    maxWidth: 1400,
+    maxWidth: 1400 / (PixelRatio.get() * 3),
     color: "#ffcc33",
   },
   circular: {

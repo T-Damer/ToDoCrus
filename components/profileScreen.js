@@ -11,10 +11,11 @@ export const ProfileScreen = () => {
         <Text style={[styles.textH1, styles.mainMessage]}>Profile:</Text>
         <View style={styles.line} />
       </View>
-      <View style={{ flex: 2 }}>
+      <View style={{ flex: 2, alignItems: "center" }}>
         <ScrollView
           style={{
             flexGrow: 1,
+            width: "80%",
           }}
         >
           <ProfileItem text={"OPTIONS:"} />

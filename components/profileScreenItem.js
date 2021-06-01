@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, ScrollView, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, PixelRatio } from "react-native";
 
 export const ProfileItem = (props) => {
   return (
@@ -30,11 +30,18 @@ export const ProfileSubItem = (props) => {
   );
 };
 
+if (PixelRatio.get() > 1) {
+  // Smthing else than WEB version
+  var PADDINGHOR_LABLE = 30;
+} else if (PixelRatio.get() <= 1) {
+  var PADDINGHOR_LABLE = 40;
+}
+
 const styles = StyleSheet.create({
   item: {
     backgroundColor: "#000",
     margin: 15,
-    paddingHorizontal: 40,
+    paddingHorizontal: PADDINGHOR_LABLE,
     paddingVertical: 15,
     borderRadius: 30,
     flexDirection: "row",
@@ -47,7 +54,7 @@ const styles = StyleSheet.create({
   subItem: {
     backgroundColor: "#000",
     margin: 2,
-    paddingHorizontal: 40,
+    paddingHorizontal: PADDINGHOR_LABLE,
     paddingVertical: 10,
     borderRadius: 30,
     flexDirection: "row",
@@ -66,11 +73,11 @@ const styles = StyleSheet.create({
   },
   itemLeft: {
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "flex-start",
   },
   itemRight: {
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "flex-end",
   },
   square: {
     width: 24,
@@ -99,6 +106,7 @@ const styles = StyleSheet.create({
     maxWidth: 1400,
     color: "#ffcc33",
     justifyContent: "center",
+    alignItems: "center",
   },
   circular: {
     width: 12,

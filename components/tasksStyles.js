@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#000",
   },
   items: {
+    position: "relative",
     color: "#ffcc33",
     width: "80%",
     justifyContent: "flex-start",
@@ -66,8 +67,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     paddingVertical: 15,
     paddingHorizontal: 15,
-
-    marginRight: 20,
+    marginRight: 5,
     backgroundColor: "#000",
     borderRadius: 42,
     borderColor: "#ffcc33",
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   },
   tasksWrapper: {
     paddingTop: 80,
-    paddingHorizontal: 20,
+    paddingHorizontal: 5,
   },
   sectionTitle: {
     fontSize: 24,

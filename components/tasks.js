@@ -12,10 +12,14 @@ import {
 } from "react-native";
 
 import Task from "./task";
+// import LocalStorage from "../database/localBase.js";
 
 import { styles } from "./tasksStyles";
 
+// const storage = new LocalStorage();
+
 export default function Tasks() {
+  // We're using states to manipulate tasks between two arrays
   const [task, setTask] = useState();
   const [taskItems, setTaskItems] = useState([]);
 
@@ -25,19 +29,18 @@ export default function Tasks() {
       alert("Please enter a task");
       return;
     }
-    setTaskItems([...taskItems, task]);
-    setTask(""); //Sometimes null works better
+    setTaskItems([...taskItems, task]); // Refreshes the list of task by adding ALL of them again + new task
+    setTask(""); //Sometimes null works better, cleans the input field
   };
 
   const completeTask = (index) => {
-    let itemsCopy = [...taskItems];
-    itemsCopy.splice(index, 1); // deletes the task
+    let itemsCopy = [...taskItems]; // Using copy for more safety
+    itemsCopy.splice(index, 1); // deletes the task TODO: change the "done": true, not just delete task
     setTaskItems(itemsCopy);
   };
 
   return (
     <View style={styles.container}>
-      {/* Added this scroll view to enable scrolling when list gets longer than the page */}
       <ScrollView
         contentContainerStyle={{
           flexGrow: 1,
@@ -68,7 +71,7 @@ export default function Tasks() {
         style={styles.writeTaskWrapper}
       >
         <TextInput
-          style={[styles.input]}
+          style={styles.input}
           placeholder={"Write a task"}
           value={task}
           onChangeText={(text) => setTask(text)}
