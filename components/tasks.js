@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   View,
   Text,
-  StyleSheet,
   KeyboardAvoidingView,
   Keyboard,
   Platform,
@@ -10,56 +9,83 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
+const { uuid } = require("uuidv4"); // For TS use import { uuid } from 'uuidv4';
+import getCurrentDate from "./getCurrentDate";
 
-import Task from "./task";
-// import LocalStorage from "../database/localBase.js";
+import { Task } from "./task";
 
 import { styles } from "./tasksStyles";
-
-// const storage = new LocalStorage();
+import { taskStyle } from "./taskStyles";
+import { Icon } from "react-native-elements";
 
 export default function Tasks() {
-  // We're using states to manipulate tasks between two arrays
-  const [task, setTask] = useState();
-  const [taskItems, setTaskItems] = useState([]);
+  const [text, setText] = useState("");
+  const [todoItems, setTodoItems] = useState(() => [
+    {
+      id: uuid(),
+      title: text,
+      date: getCurrentDate(),
+      done: false,
+      doneDate: getCurrentDate(),
+    },
+  ]);
 
-  const handleAddTask = () => {
+  const handleAddTask = (text) => {
     Keyboard.dismiss();
-    if (!task) {
+    if (!text) {
       alert("Please enter a task");
       return;
+    } else {
+      setTodoItems([
+        ...todoItems,
+        {
+          id: uuid(),
+          title: text,
+          date: getCurrentDate(),
+          done: false,
+          doneDate: getCurrentDate(),
+        },
+      ]);
+      setText("");
     }
-    setTaskItems([...taskItems, task]); // Refreshes the list of task by adding ALL of them again + new task
-    setTask(""); //Sometimes null works better, cleans the input field
   };
 
-  const completeTask = (index) => {
-    let itemsCopy = [...taskItems]; // Using copy for more safety
-    itemsCopy.splice(index, 1); // deletes the task TODO: change the "done": true, not just delete task
-    setTaskItems(itemsCopy);
+  const completeTodoItem = (id) =>
+    setTodoItems(
+      todoItems.map((todoItem) =>
+        todoItem.id === id ? { ...todoItem, done: !todoItem.done } : todoItem
+      )
+    );
+
+  const removeTask = (id) => {
+    let itemsCopy = [...todoItems]; // Using copy for more safety
+    itemsCopy = itemsCopy.filter((todoItem) => todoItem.id !== id);
+    setTodoItems(itemsCopy);
   };
 
   return (
     <View style={styles.container}>
       <ScrollView
-        contentContainerStyle={{
+        contentCo
+        ntainerStyle={{
           flexGrow: 1,
         }}
         keyboardShouldPersistTaps="handled"
       >
         <View style={styles.tasksWrapper}>
           <View style={styles.items}>
-            {/* This is where the tasks will go */}
-            {taskItems.map((item, index) => {
-              return (
-                <TouchableOpacity
-                  key={index}
-                  onPress={() => completeTask(index)}
-                >
-                  <Task text={item} />
-                </TouchableOpacity>
-              );
-            })}
+            {/* This is where the tasks will go.*/}
+            {todoItems.map((item, index) => (
+              <Task
+                key={item.id}
+                date={item.date}
+                title={item.title}
+                done={item.done}
+                doneDate={item.doneDate}
+                complete={() => completeTodoItem(item.id)}
+                removeTask={() => removeTask(item.id)}
+              ></Task>
+            ))}
           </View>
         </View>
       </ScrollView>
@@ -73,11 +99,11 @@ export default function Tasks() {
         <TextInput
           style={styles.input}
           placeholder={"Write a task"}
-          value={task}
-          onChangeText={(text) => setTask(text)}
-          clearButtonMode="always"
+          value={text}
+          onChangeText={(text) => setText(text)}
         />
-        <TouchableOpacity onPress={() => handleAddTask(this)}>
+
+        <TouchableOpacity onPress={() => handleAddTask(text)}>
           <View style={styles.addWrapper}>
             <Text style={styles.addText}>+</Text>
           </View>

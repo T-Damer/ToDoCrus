@@ -1,6 +1,6 @@
 // https://docs.mongodb.com/realm/tutorial/react-native/
 
-static schema = {
+static const schema = {
     name: "Task",
     properties: {
       _id: "objectId",
