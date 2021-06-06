@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -9,26 +9,18 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-const { uuid } = require("uuidv4"); // For TS use import { uuid } from 'uuidv4';
+import { v4 as uuid } from "uuid";
+import axios from "axios";
+
 import getCurrentDate from "./getCurrentDate";
 
 import { Task } from "./task";
 
-import { styles } from "./tasksStyles";
-import { taskStyle } from "./taskStyles";
-import { Icon } from "react-native-elements";
+import { styles } from "./componentStyles/tasksStyles";
 
 export default function Tasks() {
   const [text, setText] = useState("");
-  const [todoItems, setTodoItems] = useState(() => [
-    {
-      id: uuid(),
-      title: text,
-      date: getCurrentDate(),
-      done: false,
-      doneDate: getCurrentDate(),
-    },
-  ]);
+  const [todoItems, setTodoItems] = useState(() => []);
 
   const handleAddTask = (text) => {
     Keyboard.dismiss();
@@ -50,12 +42,13 @@ export default function Tasks() {
     }
   };
 
-  const completeTodoItem = (id) =>
+  const completeTodoItem = (id) => {
     setTodoItems(
       todoItems.map((todoItem) =>
         todoItem.id === id ? { ...todoItem, done: !todoItem.done } : todoItem
       )
     );
+  };
 
   const removeTask = (id) => {
     let itemsCopy = [...todoItems]; // Using copy for more safety
@@ -63,11 +56,19 @@ export default function Tasks() {
     setTodoItems(itemsCopy);
   };
 
+  // const fetchTasks = async () => {
+  //   const response = await axios.get(""); // Paste a link with an id of task
+  //   handleAddTask(response.text);
+  // };
+
+  // useEffect(() => {
+  //   fetchTasks();
+  // }, []); // [] -> run only on start
+
   return (
     <View style={styles.container}>
       <ScrollView
-        contentCo
-        ntainerStyle={{
+        contentContainerStyle={{
           flexGrow: 1,
         }}
         keyboardShouldPersistTaps="handled"
@@ -99,6 +100,7 @@ export default function Tasks() {
         <TextInput
           style={styles.input}
           placeholder={"Write a task"}
+          placeholderTextColor="#878787"
           value={text}
           onChangeText={(text) => setText(text)}
         />

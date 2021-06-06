@@ -101,9 +101,6 @@ const TabsScreen = () => {
               </Text>
             </View>
           ),
-
-          // tabBarButton: (props) => <fireButton {...props} />,
-          // This line of code makes CSSStyle ERROR
         }}
       />
       <Tabs.Screen

@@ -12,10 +12,9 @@ if (PixelRatio.get() > 1) {
 
 const styles = StyleSheet.create({
   mainMessage: {
-    position: "relative",
+    position: "absolute",
     left: MAINMSG_LEFT_STYLE,
-    top: 83,
-    lineHeight: 6,
+    top: 65,
   },
   line: {
     position: "absolute",

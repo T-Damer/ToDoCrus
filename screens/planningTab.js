@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, ScrollView, StyleSheet, PixelRatio } from "react-native";
-import Tasks from "./tasks";
+import Tasks from "../components/tasks";
+import getCurrentDate from "../components/getCurrentDate";
 
 export const PlanningTab = () => {
   return (
@@ -23,14 +24,13 @@ export const PlanningTab = () => {
       >
         <View
           style={{
-            flex: 0.5,
             width: TASKS_WIDTH_LABEL,
             height: 50,
             backgroundColor: "#000",
             alignItems: "center",
           }}
         />
-        <Text style={styles.dateFormat}>12.05.21</Text>
+        <Text style={styles.dateFormat}>{getCurrentDate()}</Text>
         <View style={styles.hr} />
         <ScrollView
           style={{

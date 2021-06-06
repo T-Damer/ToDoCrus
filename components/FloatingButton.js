@@ -1,7 +1,6 @@
 import React from "react";
 import {
   View,
-  Text,
   StyleSheet,
   Animated,
   TouchableWithoutFeedback,
@@ -67,27 +66,56 @@ export default class FloatingButton extends React.Component {
       ],
     };
     return (
-      <View style={[styles.container, this.props.styles]}>
+      <View
+        style={[
+          floatingButtonStyles.container,
+          this.props.floatingButtonStyles,
+        ]}
+      >
         <TouchableWithoutFeedback>
-          <Animated.View style={[styles.button, styles.secondary, heartStyle]}>
+          <Animated.View
+            style={[
+              floatingButtonStyles.button,
+              floatingButtonStyles.secondary,
+              heartStyle,
+            ]}
+          >
             <AntDesign name="hearto" size={20} color="#000" />
           </Animated.View>
         </TouchableWithoutFeedback>
 
         <TouchableWithoutFeedback>
-          <Animated.View style={[styles.button, styles.secondary, thumbStyle]}>
+          <Animated.View
+            style={[
+              floatingButtonStyles.button,
+              floatingButtonStyles.secondary,
+              thumbStyle,
+            ]}
+          >
             <Entypo name="thumbs-up" size={20} color="#000" />
           </Animated.View>
         </TouchableWithoutFeedback>
 
         <TouchableWithoutFeedback>
-          <Animated.View style={[styles.button, styles.secondary, pinStyle]}>
+          <Animated.View
+            style={[
+              floatingButtonStyles.button,
+              floatingButtonStyles.secondary,
+              pinStyle,
+            ]}
+          >
             <Entypo name="location-pin" size={20} color="#000" />
           </Animated.View>
         </TouchableWithoutFeedback>
 
         <TouchableWithoutFeedback onPress={this.toggleMenu}>
-          <Animated.View style={[styles.button, styles.menu, rotation]}>
+          <Animated.View
+            style={[
+              floatingButtonStyles.button,
+              floatingButtonStyles.menu,
+              rotation,
+            ]}
+          >
             <AntDesign name="plus" size={24} color="#000" />
           </Animated.View>
         </TouchableWithoutFeedback>
@@ -96,7 +124,7 @@ export default class FloatingButton extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
+const floatingButtonStyles = StyleSheet.create({
   container: {
     position: "relative",
   },

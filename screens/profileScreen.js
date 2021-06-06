@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, ScrollView } from "react-native";
 import { ProfileItem, ProfileSubItem } from "./profileScreenItem";
 import { styles } from "./profileScreenStyles";
-// import { ProfileScreenUI } from "/.profileScreenUI";
 
 export const ProfileScreen = () => {
   return (

@@ -14,6 +14,12 @@ export const taskStyle = StyleSheet.create({
     borderWidth: 2,
     borderColor: "#ffcc33",
   },
+  itemTextComplete: {
+    fontSize: 24,
+    maxWidth: 1400 / (PixelRatio.get() * 3),
+    color: "#ffcc33",
+    textDecorationLine: "line-through",
+  },
   itemLeft: {
     flexDirection: "row",
     alignItems: "center",

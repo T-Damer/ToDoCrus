@@ -2,19 +2,7 @@ import React from "react";
 import { View, Text, ScrollView, StyleSheet, PixelRatio } from "react-native";
 import { PlanningTab } from "./planningTab";
 import { styles } from "./planningScreenStyles";
-// Must be updated, because user may scroll to endless and app must support this
-// Actually it's not working
-var date = new Date().getDate();
-var month = new Date().getMonth() + 1;
-var year = new Date().getFullYear();
-
-var date1 = new Date().getDate() + 1;
-var month1 = new Date().getMonth() + 1;
-var year1 = new Date().getFullYear();
-
-var date2 = new Date().getDate() + 2;
-var month2 = new Date().getMonth() + 1;
-var year2 = new Date().getFullYear();
+import { getCurrentDate } from "../components/getCurrentDate";
 
 export const PlanningScreen = () => {
   if (PixelRatio.get() <= 1) {
@@ -26,10 +14,10 @@ export const PlanningScreen = () => {
         </View>
         <ScrollView horizontal={true} disableIntervalMomentum={true}>
           <View style={{ flexDirection: "row" }}>
-            <PlanningTab date={date} month={month} year={year} />
-            <PlanningTab date={date1} month={month1} year={year1} />
-            <PlanningTab date={date2} month={month2} year={year2} />
-            <PlanningTab date={date2} month={month2} year={year2} />
+            <PlanningTab date={getCurrentDate} />
+            <PlanningTab date={getCurrentDate} />
+            <PlanningTab date={getCurrentDate} />
+            <PlanningTab date={getCurrentDate} />
           </View>
         </ScrollView>
         <View
