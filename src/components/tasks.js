@@ -9,50 +9,20 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import { v4 as uuid } from "uuid";
-
-import getCurrentDate from "./tools/getCurrentDate";
+import { observer } from "mobx-react";
 
 import Task from "./task";
 
 import styles from "./componentStyles/tasksStyles";
+import { todoItemsStore } from "../stateStorage/todoItems";
 
-export default function Tasks() {
+const Tasks = observer(() => {
   const [text, setText] = useState("");
-  const [todoItems, setTodoItems] = useState(() => []);
 
   const handleAddTask = (text) => {
     Keyboard.dismiss();
-    if (!text) {
-      alert("Please enter a task");
-      return;
-    } else {
-      setTodoItems([
-        ...todoItems,
-        {
-          id: uuid(),
-          title: text,
-          date: getCurrentDate(),
-          done: false,
-          doneDate: getCurrentDate(),
-        },
-      ]);
-      setText("");
-    }
-  };
-
-  const completeTodoItem = (id) => {
-    setTodoItems(
-      todoItems.map((todoItem) =>
-        todoItem.id === id ? { ...todoItem, done: !todoItem.done } : todoItem
-      )
-    );
-  };
-
-  const removeTask = (id) => {
-    let itemsCopy = [...todoItems]; // Using copy for more safety
-    itemsCopy = itemsCopy.filter((todoItem) => todoItem.id !== id);
-    setTodoItems(itemsCopy);
+    todoItemsStore.add(text);
+    setText("");
   };
 
   return (
@@ -66,15 +36,15 @@ export default function Tasks() {
         <View style={styles.tasksWrapper}>
           <View style={styles.items}>
             {/* This is where the tasks will go.*/}
-            {todoItems.map((item, index) => (
+            {todoItemsStore.todoItems.map((item, index) => (
               <Task
                 key={item.id}
                 date={item.date}
                 title={item.title}
                 done={item.done}
                 doneDate={item.doneDate}
-                complete={() => completeTodoItem(item.id)}
-                removeTask={() => removeTask(item.id)}
+                removeTask={() => todoItemsStore.delete(item.id)}
+                complete={() => todoItemsStore.complete(item.id)}
               ></Task>
             ))}
           </View>
@@ -82,7 +52,7 @@ export default function Tasks() {
       </ScrollView>
 
       {/* Write a task */}
-      {/* Uses a keyboard avoiding view which ensures the keyboard does not cover the items on screen */}
+      {/* Uses a keyboardAvoidingView which ensures the keyboard does not cover the items on screen */}
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.writeTaskWrapper}
@@ -103,4 +73,6 @@ export default function Tasks() {
       </KeyboardAvoidingView>
     </View>
   );
-}
+});
+
+export default Tasks;

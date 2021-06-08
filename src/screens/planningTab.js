@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, ScrollView } from "react-native";
 import Tasks from "../components/tasks";
-import getCurrentDate from "../components/tools/getCurrentDate";
+import getCurrentDate from "../tools/getCurrentDate";
 
 import styles from "./screenStyles/planningTabStyles";
 

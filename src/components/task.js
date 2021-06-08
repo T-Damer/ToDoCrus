@@ -9,8 +9,8 @@ export default function Task({
   title,
   done,
   doneDate,
-  complete,
   removeTask,
+  complete,
 }) {
   return (
     <View style={taskStyle.item}>

@@ -11,7 +11,7 @@ export default function PlanScreenWeb() {
         <Text style={[styles.textH1, styles.mainMessage]}>Planning:</Text>
       </View>
       <ScrollView horizontal={true} disableIntervalMomentum={true}>
-        <View style={{ flexDirection: "row" }}>
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
           <PlanningTab />
           <PlanningTab />
           <PlanningTab />
