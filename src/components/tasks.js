@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -10,13 +10,12 @@ import {
   ScrollView,
 } from "react-native";
 import { v4 as uuid } from "uuid";
-import axios from "axios";
 
-import getCurrentDate from "./getCurrentDate";
+import getCurrentDate from "./tools/getCurrentDate";
 
-import { Task } from "./task";
+import Task from "./task";
 
-import { styles } from "./componentStyles/tasksStyles";
+import styles from "./componentStyles/tasksStyles";
 
 export default function Tasks() {
   const [text, setText] = useState("");
@@ -55,15 +54,6 @@ export default function Tasks() {
     itemsCopy = itemsCopy.filter((todoItem) => todoItem.id !== id);
     setTodoItems(itemsCopy);
   };
-
-  // const fetchTasks = async () => {
-  //   const response = await axios.get(""); // Paste a link with an id of task
-  //   handleAddTask(response.text);
-  // };
-
-  // useEffect(() => {
-  //   fetchTasks();
-  // }, []); // [] -> run only on start
 
   return (
     <View style={styles.container}>

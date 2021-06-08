@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text, ScrollView } from "react-native";
-import { ProfileItem, ProfileSubItem } from "./profileScreenItem";
-import { styles } from "./profileScreenStyles";
+import { ProfileItem, ProfileSubItem } from "./profileScreenItems";
+import styles from "./screenStyles/profileScreenStyles";
 
-export const ProfileScreen = () => {
+export default function ProfileScreen() {
   return (
     <View style={styles.screen}>
       <View style={{ flex: 0.7 }}>
@@ -30,4 +30,4 @@ export const ProfileScreen = () => {
       <View style={{ flex: 0.5 }} />
     </View>
   );
-};
+}

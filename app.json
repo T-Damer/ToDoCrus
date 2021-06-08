@@ -2,34 +2,32 @@
   "expo": {
     "name": "ToDoCrus",
     "slug": "ToDoCrus",
-    "version": "1.0.0",
+    "version": "0.1.4",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "src/assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "src/assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffcc33"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "buildNumber": "1.0.0"
+      "buildNumber": "0.1.4"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "src/assets/adaptive-icon.png",
         "backgroundColor": "#ffcc33"
       },
       "package": "com.t_damer.ToDoCrus",
       "versionCode": 1
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "src/assets/favicon.png"
     },
     "description": "Simple todo app, that helps you to focus on your tasks, it will not solve the problem for you, but certainly will help",
     "primaryColor": "#ffcc33"

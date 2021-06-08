@@ -5,6 +5,7 @@ if (PixelRatio.get() > 1) {
   var FONT_H1_LABEL = 64;
   var MAINMSG_LEFT_STYLE = 50;
 } else {
+  // WEB itself
   var FONT_H1_LABEL = 96;
   var MAINMSG_LEFT_STYLE = 100;
 }
@@ -28,10 +29,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "black",
   },
-  planningScreen: {
-    flex: 1,
-    backgroundColor: "black",
-  },
   textH1: {
     color: "#ffcc33",
     fontFamily: "Roboto",
@@ -45,4 +42,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export { styles };
+export default styles;

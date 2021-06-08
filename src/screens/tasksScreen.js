@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text, SafeAreaView } from "react-native";
 import Tasks from "../components/tasks";
-import { styles } from "./screensStyles";
+import styles from "./screenStyles/taskScreenStyles";
 
-export const TasksScreen = () => {
+export default function TasksScreen() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.screen}>
@@ -17,4 +17,4 @@ export const TasksScreen = () => {
       </View>
     </SafeAreaView>
   );
-};
+}

@@ -5,7 +5,6 @@ if (PixelRatio.get() > 1) {
   var FONT_H1_LABEL = 64;
   var MAINMSG_LEFT_STYLE = 50;
 } else {
-  // WEB itself
   var FONT_H1_LABEL = 96;
   var MAINMSG_LEFT_STYLE = 100;
 }
@@ -29,6 +28,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "black",
   },
+  planningScreen: {
+    flex: 1,
+    backgroundColor: "black",
+  },
   textH1: {
     color: "#ffcc33",
     fontFamily: "Roboto",
@@ -40,6 +43,18 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto",
     padding: 20,
   },
+  timeButtonsWrapper: {
+    flex: 0.7,
+    width: "100%",
+    backgroundColor: "#000",
+    flexDirection: "row",
+  },
+  timeButtonText: {
+    color: "#ffcc33",
+    fontSize: 20,
+    fontFamily: "Roboto",
+    padding: 20,
+  },
 });
 
-export { styles };
+export default styles;

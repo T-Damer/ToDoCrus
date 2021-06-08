@@ -8,7 +8,7 @@ if (PixelRatio.get() > 1) {
   var MAINMSG_LEFT_STYLE = 100;
 }
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   taskView: {
     position: "absolute",
     width: "95%",
@@ -103,3 +103,5 @@ export const styles = StyleSheet.create({
     fontSize: 24,
   },
 });
+
+export default styles;

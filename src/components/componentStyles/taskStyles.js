@@ -1,6 +1,6 @@
 import { StyleSheet, PixelRatio } from "react-native";
 
-export const taskStyle = StyleSheet.create({
+const taskStyle = StyleSheet.create({
   item: {
     backgroundColor: "#000",
     margin: 15,
@@ -51,3 +51,5 @@ export const taskStyle = StyleSheet.create({
     marginBottom: 16,
   },
 });
+
+export default taskStyle;

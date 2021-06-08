@@ -1,34 +1,4 @@
-import React from "react";
-import { View, Text, StyleSheet, PixelRatio } from "react-native";
-
-export const ProfileItem = (props) => {
-  return (
-    <View style={styles.item}>
-      <View style={styles.itemLeft}>
-        <View style={styles.triangleShapeCSS} />
-      </View>
-      <Text style={styles.itemText}>{props.text}</Text>
-      <View style={styles.itemRight}>
-        <View style={styles.triangleShapeCSS} />
-      </View>
-      {/* <View style={styles.circular}></View> WILL NEED THIS IN "OPEN" STATE*/}
-    </View>
-  );
-};
-
-export const ProfileSubItem = (props) => {
-  return (
-    <View style={styles.subItem}>
-      <View style={styles.itemLeft}>
-        <View style={styles.circular} />
-      </View>
-      <Text style={styles.subItemText}>{props.text}</Text>
-      <View style={styles.itemRight}>
-        <View style={styles.circular} />
-      </View>
-    </View>
-  );
-};
+import { StyleSheet, PixelRatio } from "react-native";
 
 if (PixelRatio.get() > 1) {
   // Smthing else than WEB version
@@ -117,3 +87,5 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
 });
+
+export default styles;

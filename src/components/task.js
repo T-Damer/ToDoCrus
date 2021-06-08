@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
-import { taskStyle } from "./componentStyles/taskStyles";
+import taskStyle from "./componentStyles/taskStyles";
 import { Icon } from "react-native-elements";
 
-export const Task = ({
+export default function Task({
   id,
   date,
   title,
@@ -11,7 +11,7 @@ export const Task = ({
   doneDate,
   complete,
   removeTask,
-}) => {
+}) {
   return (
     <View style={taskStyle.item}>
       <View style={taskStyle.itemLeft}>
@@ -53,4 +53,4 @@ export const Task = ({
       </View>
     </View>
   );
-};
+}
