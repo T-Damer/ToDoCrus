@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -21,9 +21,13 @@ const Tasks = observer(() => {
 
   const handleAddTask = (text) => {
     Keyboard.dismiss();
-    todoItemsStore.add(text);
+    todoItemsStore.addToArray(text);
     setText("");
   };
+
+  useEffect(() => {
+    todoItemsStore.readFromStorage();
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -43,8 +47,8 @@ const Tasks = observer(() => {
                 title={item.title}
                 done={item.done}
                 doneDate={item.doneDate}
-                removeTask={() => todoItemsStore.delete(item.id)}
-                complete={() => todoItemsStore.complete(item.id)}
+                removeTask={() => todoItemsStore.deleteFromArray(item.id)}
+                complete={() => todoItemsStore.completeInArray(item.id)}
               ></Task>
             ))}
           </View>
