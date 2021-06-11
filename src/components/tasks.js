@@ -25,6 +25,7 @@ const Tasks = observer(() => {
     setText("");
   };
 
+  // Still don't know if we really need this
   useEffect(() => {
     todoItemsStore.readFromStorage();
   }, []);

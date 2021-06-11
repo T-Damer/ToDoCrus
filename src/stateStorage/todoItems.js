@@ -32,7 +32,7 @@ class TodoItems {
           title: text,
           date: getCurrentDate(),
           done: false,
-          doneDate: getCurrentDate(),
+          doneDate: "",
         },
       ];
       this.todoItems.map((todoItem) => this.saveInStorage(todoItem));
@@ -58,7 +58,7 @@ class TodoItems {
   saveInStorage = async (todoItem) => {
     // todoItem: object
     try {
-      await AsyncStorage.setItem("todoItem", JSON.stringify(todoItem)); // JSON used to parse object
+      await AsyncStorage.setItem("task", JSON.stringify(todoItem)); // JSON used to parse object
     } catch (err) {
       Alert.alert("Not added", "It looks like you haven't entered a task", [
         { text: "OK" },
@@ -68,7 +68,7 @@ class TodoItems {
 
   removeFromStorage = async (todoItem) => {
     try {
-      await AsyncStorage.removeItem("todoItem");
+      await AsyncStorage.removeItem("task");
     } catch (err) {
       Alert.alert("No tasks", "It looks like you have no tasks in a list", [
         { text: "OK" },
@@ -80,11 +80,11 @@ class TodoItems {
 
   readFromStorage = async (todoItem) => {
     try {
-      let loadTask = await AsyncStorage.getItem("todoItem");
+      let loadTask = await AsyncStorage.getItem("task");
       if (loadTask !== null) {
-        this.addToArray(JSON.parse(loadTask)); // if we have task in storage, then we will add it to array
+        this.addToArray(JSON.parse(todoItem)); // if we have task in storage, then we will add it to array
       } else {
-        return null;
+        return "no tasks";
       }
     } catch (err) {
       Alert.alert("Not added", "It looks like you haven't entered a task", [
