@@ -52,7 +52,7 @@ class TodoItems {
   }
 
   get count() {
-    return this.taskItems.length;
+    return Number(this.taskItems.length);
   }
 
   saveInStorage = async (todoItem) => {
@@ -68,7 +68,7 @@ class TodoItems {
 
   removeFromStorage = async (todoItem) => {
     try {
-      await AsyncStorage.removeItem("task");
+      await AsyncStorage.removeItem(todoItem.id);
     } catch (err) {
       Alert.alert("No tasks", "It looks like you have no tasks in a list", [
         { text: "OK" },

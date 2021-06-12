@@ -25,7 +25,7 @@ const Tasks = observer(() => {
     setText("");
   };
 
-  // Still don't know if we really need this
+  // Still don't know how to make this work, tasks simply don't load
   useEffect(() => {
     todoItemsStore.readFromStorage();
   }, []);
@@ -40,7 +40,7 @@ const Tasks = observer(() => {
       >
         <View style={styles.tasksWrapper}>
           <View style={styles.items}>
-            {/* This is where the tasks will go.*/}
+            {/* This is where the tasks will go to make an object and render in <Task> component .*/}
             {todoItemsStore.todoItems.map((item, index) => (
               <Task
                 key={item.id}
@@ -50,7 +50,8 @@ const Tasks = observer(() => {
                 doneDate={item.doneDate}
                 removeTask={() => todoItemsStore.deleteFromArray(item.id)}
                 complete={() => todoItemsStore.completeInArray(item.id)}
-              ></Task>
+                count={() => todoItemsStore.count()}
+              />
             ))}
           </View>
         </View>
@@ -69,7 +70,6 @@ const Tasks = observer(() => {
           value={text}
           onChangeText={(text) => setText(text)}
         />
-
         <TouchableOpacity onPress={() => handleAddTask(text)}>
           <View style={styles.addWrapper}>
             <Text style={styles.addText}>+</Text>
