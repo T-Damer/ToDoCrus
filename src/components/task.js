@@ -11,7 +11,6 @@ export default function Task({
   doneDate,
   removeTask,
   complete,
-  count,
 }) {
   return (
     <View style={taskStyle.item}>

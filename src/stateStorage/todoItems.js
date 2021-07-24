@@ -1,11 +1,9 @@
 import { makeObservable, observable, action, computed } from "mobx";
-import { useEffect } from "react";
 import { Alert } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useEffect } from "react";
 import { v4 as uuid } from "uuid";
 import getCurrentDate from "../tools/getCurrentDate";
-
-// We use the array todoItems and its methods to work with the asyncStorage. This is wrapper
+import localforage from "localforage";
 
 class TodoItems {
   todoItems = [];
@@ -37,6 +35,7 @@ class TodoItems {
       ];
       this.todoItems.map((todoItem) => this.saveInStorage(todoItem));
       this.todoItems.map((todoItem) => this.readFromStorage(todoItem));
+      readFromStorage();
     }
   }
 
@@ -58,7 +57,7 @@ class TodoItems {
   saveInStorage = async (todoItem) => {
     // todoItem: object
     try {
-      await AsyncStorage.setItem("task", JSON.stringify(todoItem)); // JSON used to parse object
+      localforage.setItem("task", JSON.stringify(todoItem)); // JSON used to parse object
     } catch (err) {
       Alert.alert("Not added", "It looks like you haven't entered a task", [
         { text: "OK" },
@@ -68,7 +67,7 @@ class TodoItems {
 
   removeFromStorage = async (todoItem) => {
     try {
-      await AsyncStorage.removeItem(todoItem.id);
+      await localforage.removeItem(todoItem.id);
     } catch (err) {
       Alert.alert("No tasks", "It looks like you have no tasks in a list", [
         { text: "OK" },
@@ -80,14 +79,14 @@ class TodoItems {
 
   readFromStorage = async (todoItem) => {
     try {
-      let loadTask = await AsyncStorage.getItem("task");
+      let loadTask = await localforage.getItem("task");
       if (loadTask !== null) {
         this.addToArray(JSON.parse(todoItem)); // if we have task in storage, then we will add it to array
       } else {
         return "no tasks";
       }
     } catch (err) {
-      Alert.alert("Not added", "It looks like you haven't entered a task", [
+      Alert.alert("Not added", "It looks like you have no tasks", [
         { text: "OK" },
       ]);
     }

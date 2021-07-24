@@ -15,6 +15,7 @@ import Task from "./task";
 
 import styles from "./componentStyles/tasksStyles";
 import { todoItemsStore } from "../stateStorage/todoItems";
+import taskStorage from "../database/taskStorage";
 
 const Tasks = observer(() => {
   const [text, setText] = useState("");
@@ -24,11 +25,6 @@ const Tasks = observer(() => {
     todoItemsStore.addToArray(text);
     setText("");
   };
-
-  // Still don't know how to make this work, tasks simply don't load
-  useEffect(() => {
-    todoItemsStore.readFromStorage();
-  }, []);
 
   return (
     <View style={styles.container}>
@@ -50,7 +46,6 @@ const Tasks = observer(() => {
                 doneDate={item.doneDate}
                 removeTask={() => todoItemsStore.deleteFromArray(item.id)}
                 complete={() => todoItemsStore.completeInArray(item.id)}
-                count={() => todoItemsStore.count()}
               />
             ))}
           </View>
